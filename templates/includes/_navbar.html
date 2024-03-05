@@ -1,0 +1,31 @@
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom ">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url "index" %}" class="nav-link px-2 link-secondary">Home</a></li>
+      </ul>
+      {% if user.is_authenticated %}
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url "update_password" %}" class="nav-link px-2 link-secondary">Şifre Güncelleme</a></li>
+      </ul>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <h4 class=" text-light">Hoş geldiniz "{{request.user.username}}"</h4>
+      <button class="btn btn-outline-danger"><a class="text-decoration-none text-warning" href="{% url "logout" %}">Çıkış yap</a></button>
+     
+      {% else %}
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2"><a class="text-info text-decoration-none  " href="{% url "login" %}">Login</a></button>
+        
+        <button type="button" class="btn btn-primary"><a class="text-white text-decoration-none " href="{% url "register" %}">Sign-up</a></button>
+      </div>
+      
+      {% endif %}
+   
+    </header>
+  </div>

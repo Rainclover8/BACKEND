@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Şifre Güncelleme{% endblock title %}
+
+
+
+{% block content %}
+<h1 class="text-center">Şifre Güncelleme</h1>
+
+{{message}}    
+<form method="POST" class="d-flex flex-column  justify-content-center ">
+    {% csrf_token %}
+
+    <div class="container d-flex flex-column w-50">
+        {{form}} <br>
+        <input type="submit" value="Şifre değiştir" class="btn btn-success ">
+    </div>
+    
+
+</form>
+{% endblock content %}
