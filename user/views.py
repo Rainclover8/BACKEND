@@ -41,8 +41,10 @@ def register(request):
             form.save()
             messages.warning(request, 'Hesap Oluşturuldu! Giriş yapınız')
             return redirect('login')
+        else:
+            messages.warning(request, 'Eksik veya hatalı girdiniz')
     else:
-          form = registerForm()
+        form = registerForm()
         
     
     return render(request, 'register.html',{'form':form})
